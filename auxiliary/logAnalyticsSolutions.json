@@ -10,7 +10,7 @@
         },
         "workspaceName": {
             "type": "string",
-            "defaultValue": "[concat(parameters('topLevelManagementGroupPrefix'), '-la-', parameters('managementSubscriptionId'))]"
+            "defaultValue": "[concat(parameters('topLevelManagementGroupPrefix'), '-management-la')]"
         },
         "workspaceRegion": {
             "type": "string",
