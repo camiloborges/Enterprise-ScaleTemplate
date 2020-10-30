@@ -1,0 +1,84 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "enterpriseScaleCompanyPrefix": {
+            "value": "kath"
+        },
+        "managementSubscriptionId": {
+            "value": "461f4b01-242e-4784-9775-f5200596296e"
+        },
+        "connectivitySubscriptionId": {
+            "value": "d5154783-78d7-47cd-a675-df0298680573"
+        },
+        "enableLogAnalytics": {
+            "value": "Yes"
+        },
+        "retentionInDays": {
+            "value": "30"
+        },
+        "enableAsc": {
+            "value": "Standard"
+        },
+        "enableArcMonitoring": {
+            "value": "Yes"
+        },
+        "enableVmMonitoring": {
+            "value": "Yes"
+        },
+        "enableVmssMonitoring": {
+            "value": "Yes"
+        },
+        "enableSecuritySolution": {
+            "value": "Yes"
+        },
+        "enableAgentHealth": {
+            "value": "Yes"
+        },
+        "enableChangeTracking": {
+            "value": "Yes"
+        },
+        "enableSqlAudit": {
+            "value": "Yes"
+        },
+        "enableSqlEncryption": {
+            "value": "Yes"
+        },
+        "enableVmBackup": {
+            "value": "Yes"
+        },
+        "denyRdp": {
+            "value": "No"
+        },
+        "enableStorageHttps": {
+            "value": "Yes"
+        },
+        "denyIpForwarding": {
+            "value": "Yes"
+        },
+        "denySubnetWithoutNsg": {
+            "value": "Yes"
+        },
+        "addressPrefix": {
+            "value": "10.3.0.0/16"
+        },
+        "enableVpnGw": {
+            "value": "Yes"
+        },
+        "location": {
+            "value": "australiasoutheast"
+        },
+        "enableHub": {
+            "value": "Yes"
+        },
+        "enableAzFw": {
+            "value": "Yes"
+        },
+        "subnetMaskForAzFw": {
+            "value": "10.3.0.0/24"
+        },
+        "subnetMaskForGw": {
+            "value": "10.3.1.0/24"
+        }
+    }
+}
