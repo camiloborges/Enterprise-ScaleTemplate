@@ -181,7 +181,7 @@
                                             "location": "[parameters('location')]",
                                             "dependsOn": [
                                                 "[concat('Microsoft.Network/publicIPAddresses/', variables('azVpnGwIpName'))]",
-                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'), '/subnets/GatewaySubnet')]"
+                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
                                             ],
                                             "properties": {
                                                 "gatewayType": "Vpn",
@@ -224,7 +224,7 @@
                                             "location": "[parameters('location')]",
                                             "dependsOn": [
                                                 "[concat('Microsoft.Network/publicIPAddresses/', variables('azErGwIpName'))]",
-                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'), '/subnets/GatewaySubnet')]"
+                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
                                             ],
                                             "properties": {
                                                 "gatewayType": "ExpressRoute",
