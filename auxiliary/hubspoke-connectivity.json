@@ -269,7 +269,7 @@
                                             "location": "[parameters('location')]",
                                             "dependsOn": [
                                                 "[concat('Microsoft.Network/publicIpAddresses/', variables('azFwIpName'))]",
-                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'), '/subnets/AzureFirewallSubnet')]"
+                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
                                             ],
                                             "properties": {
                                                 "sku": {
