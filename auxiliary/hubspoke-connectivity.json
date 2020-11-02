@@ -132,7 +132,7 @@
                                         {
                                             "name": "[variables('hubName')]",
                                             "type": "Microsoft.Network/virtualNetworks",
-                                            "apiVersion": "2020-04-01",
+                                            "apiVersion": "2020-06-01",
                                             "location": "[parameters('location')]",
                                             "properties": {
                                                 "addressSpace": {
@@ -144,7 +144,6 @@
                                             "subnets": [
                                                 {
                                                     "condition": "[and(equals(parameters('enableAzFw'), 'Yes'), not(empty(parameters('subnetMaskForAzFw'))))]",
-                                                    "apiVersion": "2020-04-01",
                                                     "id": "AzureFirewallSubnet",
                                                     "properties": {
                                                         "addressPrefix": "[parameters('subnetMaskForAzFw')]"
@@ -152,9 +151,7 @@
                                                     },
                                                 {
                                                     "condition": "[and(or(equals(parameters('enableVpnGw'), 'Yes'), equals(parameters('enableErGw'), 'Yes')), not(empty(parameters('subnetMaskForGw'))))]",
-                                                    "apiVersion": "2020-04-01",
                                                     "id": "GatewaySubnet",
-                                                
                                                     "properties": {
                                                         "addressPrefix": "[parameters('subnetMaskForGw')]"
                                                     }
