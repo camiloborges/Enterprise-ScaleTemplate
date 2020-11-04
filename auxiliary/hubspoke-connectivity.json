@@ -140,7 +140,7 @@
                                                          "[split(parameters('addressPrefix'),',')]"
                                                     
                                                 }
-                                            },
+                                            
                                             "subnets":[{
                                                 "condition": "[and(equals(parameters('enableAzFw'), 'Yes'), not(empty(parameters('subnetMaskForAzFw'))))]",
                                                 "name": "AzureFirewallSubnet",
@@ -157,6 +157,7 @@
                                             }
                                             ]
                                         }
+                                        },
                                         /*,
                                         {
                                             "condition": "[and(equals(parameters('enableAzFw'), 'Yes'), not(empty(parameters('subnetMaskForAzFw'))))]",
