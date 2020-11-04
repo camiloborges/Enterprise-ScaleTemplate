@@ -136,9 +136,9 @@
                                             "location": "[parameters('location')]",
                                             "properties": {
                                                 "addressSpace": {
-                                                    "addressPrefixes": [
+                                                    "addressPrefixes": 
                                                          "[split(parameters('addressPrefix'),',')]"
-                                                    ]
+                                                    
                                                 }
                                             }
                                         },
