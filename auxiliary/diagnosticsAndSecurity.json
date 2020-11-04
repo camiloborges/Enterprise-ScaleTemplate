@@ -6,7 +6,7 @@
             "type": "string",
             "maxLength": 5
         },
-        "managementSubscriptionId": {
+        "managementSubscriptionId": { 
             "type": "string",
             "maxLength": 36,
             "defaultValue": ""

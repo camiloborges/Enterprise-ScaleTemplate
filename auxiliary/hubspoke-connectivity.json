@@ -76,13 +76,13 @@
         }
     },
     "variables": {
-        "vpngwname": "[concat(parameters('topLevelManagementGroupPrefix'), '-connectivity-vpngw-', parameters('location'))]",
-        "erGwName": "[concat(parameters('topLevelManagementGroupPrefix'), '-connectivity-ergw-', parameters('location'))]",
+        "vpngwname": "[concat(parameters('topLevelManagementGroupPrefix'), '-connectivity-vpngw')]",
+        "erGwName": "[concat(parameters('topLevelManagementGroupPrefix'), '-connectivity-ergw')]",
         "rgName": "[concat(parameters('topLevelManagementGroupPrefix'), '-connectivity-rg')]",
-        "hubName": "[concat(parameters('topLevelManagementGroupPrefix'), '-connectivity-hub-', parameters('location'))]",
+        "hubName": "[concat(parameters('topLevelManagementGroupPrefix'), '-connectivity-hub-vnet')]",
         "azVpnGwIpName": "[concat(variables('vpngwname'), '-pip')]",
         "azVpnGwSubnetId": "[concat('/subscriptions/', parameters('connectivitySubscriptionId'), '/resourceGroups/', variables('rgName'),'/providers/Microsoft.Network/virtualNetworks/', variables('hubname'), '/subnets/GatewaySubnet')]",
-        "azFwName": "[concat(parameters('topLevelManagementGroupPrefix'), '-fw-', parameters('location'))]",
+        "azFwName": "[concat(parameters('topLevelManagementGroupPrefix'), '-fw')]",
         "azErGwIpName": "[concat(variables('erGwName'), '-pip')]",
         "azVpnGwPipId": "[concat('/subscriptions/', parameters('connectivitySubscriptionId'), '/resourceGroups/', variables('rgName'), '/providers/Microsoft.Network/publicIPAddresses/', variables('azVpnGwIpName'))]",
         "azFwIpName": "[concat(variables('azFwName'), '-pip')]",
@@ -137,7 +137,7 @@
                                             "properties": {
                                                 "addressSpace": {
                                                     "addressPrefixes": [
-                                                        "[parameters('addressPrefix')]"
+                                                         "[split(parameters('addressPrefix'),',')]"
                                                     ]
                                                 }
                                             }

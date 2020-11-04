@@ -159,7 +159,7 @@
                 "principalId": "[if(equals(parameters('enableSqlAudit'), 'Yes'), toLower(reference(concat('/providers/Microsoft.Authorization/policyAssignments/', variables('policyAssignmentNames').deploySqlAuditing), '2018-05-01', 'Full' ).identity.principalId), 'na')]"
             }
         },
-        /*
+        
         {
             "condition": "[equals(parameters('enableSqlSecurity'), 'Yes')]",
             "type": "Microsoft.Authorization/policyAssignments",
@@ -189,7 +189,7 @@
                 "roleDefinitionId": "[concat('/providers/Microsoft.Authorization/roleDefinitions/', variables('rbacOwner'))]",
                 "principalId": "[if(equals(parameters('enableSqlSecurity'), 'Yes'), toLower(reference(concat('/providers/Microsoft.Authorization/policyAssignments/', variables('policyAssignmentNames').deploysqlSecurity), '2018-05-01', 'Full' ).identity.principalId), 'na')]"
             }
-        },*/
+        },
         {
             "condition": "[equals(parameters('enableSqlEncryption'), 'Yes')]",
             "type": "Microsoft.Authorization/policyAssignments",

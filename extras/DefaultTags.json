@@ -1,0 +1,298 @@
+{
+   "properties": {
+      "displayName": "Add a tag to resource groups",
+      "policyType": "BuiltIn",
+      "mode": "All",
+      "description": "Adds the specified tags and value when any resource group missing this tag is created or updated. Existing resource groups can be remediated by triggering a remediation task. If the tag exists with a different value it will not be changed.",
+      "metadata": {
+         "version": "1.0.0",
+         "category": "Tags"
+      },
+      "parameters": {
+         "client_name": {
+            "type": "String",
+            "metadata": {
+               "displayName": "client_name",
+               "description": "Who owns resource. Ie.: 'Kathmandu', 'Ripcurl'"
+            }
+         },
+         "environment": {
+            "type": "String",
+            "metadata": {
+               "displayName": "environment",
+               "description": "Value of the tag, such as 'production'",
+               "allowedValues":["dev","sit","uat","tst","pre","prd"]
+            }
+         }
+         ,
+         "name": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Name",
+               "description": "Plain English name of the solution that this resource group relates to"
+               
+            }
+         },
+         "cost_centre": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Cost Centre",
+               "description": "Cost Centre that owns this resource group"
+               
+            }
+         },
+         "data_classification": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Cost Centre",
+               "description": "Cost Centre that owns this resource group",
+               "allowedValues":["Public","Proprietary","Confidential"]
+               
+            }
+         },
+         "business_owner": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Business owner",
+               "description": "e-mail Contact of service owner, ideally a role/group rather than invididual"
+               
+            }
+         },
+         "technical_owner": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Technical owner",
+               "description": "e-mail Contact of service owner, ideally a role/group rather than invididual"
+               
+            }
+         },
+         "project_product": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Project or product",
+               "description": "project or product services are associated with"
+               
+            }
+         },
+         "business_unit": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Business Unit",
+               "description": "name of the business unit this resource group/solution relates to"
+               
+            }
+         },
+         "auto_shutdown": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Autho Shutdown VM",
+               "description": "Schedule of when Virtual Machines are to be shut down"
+               
+            }
+         },
+         "application_name": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Application Short Name",
+               "description": "Short name of the application/service this resource group relates to"
+               
+            }
+         },"release_number": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Release Number",
+               "description": "The release number of the pipeline used to deploy the resources."
+               
+            }
+         },
+         "template_version": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Template Version",
+               "description": "The version of the ARM template used to deploy the resources"
+               
+            }
+         },
+         "backup_schedule": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Backup Schedule",
+               "description": "When backups should be taken"
+               
+            }
+         },
+         "backup_retention": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Backup Retention",
+               "description": "Backup retention information"
+               
+            }
+         },
+         "instance_schedule": {
+            "type": "String",
+            "metadata": {
+               "displayName": "Instance Schedule",
+               "description": "When server should be stopped and started"
+               
+            }
+         }  
+         
+      },
+      "policyRule": {
+         "if": {
+            "allOf": [{
+               "field": "type",
+               "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+            },{
+            "anyOf": [
+               {
+                  "field": "type",
+                  "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+               },
+               {
+                  "field": "[concat('tags[', parameters('client_name'), ']')]",
+                  "exists": "false"
+               },
+               {
+              
+                   "field": "[concat('tags[',parameters('environment'), ']')]",
+                   "exists": "false"
+              
+               },
+               {
+                   "field": "[concat('tags[',parameters('name'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('cost_centre'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('data_classification'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('business_owner'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('technical_owner'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('project_product'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('business_unit'), ']')]",
+                   "exists": "false"
+               },
+              
+               {
+                   "field": "[concat('tags[',parameters('auto_shutdown'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('application_name'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('release_number'), ']')]",
+                   "exists": "false"
+
+               },
+               {
+                   "field": "[concat('tags[',parameters('template_version'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('backup_schedule'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('backup_retention'), ']')]",
+                   "exists": "false"
+               },
+               {
+                   "field": "[concat('tags[',parameters('instance_schedule'), ']')]",
+                   "exists": "false"
+               }
+            ]}
+         ]
+         },
+         "then": {
+            "effect": "append",
+            "details": [
+              {
+                "field": "tags.client_name",
+                "value": "[parameters('client_name')]"
+              },
+              {
+                "field": "tags.environment",
+                "value": "[parameters('environment')]"
+              },
+              {
+                "field": "tags.name",
+                "value": "[parameters('name')]"
+              },
+              {
+                "field": "tags.cost_centre",
+                "value": "[parameters('cost_centre')]"
+              },
+              {
+                "field": "tags.data_classification",
+                "value": "[parameters('data_classification')]"
+              },
+              {
+                "field": "tags.business_owner",
+                "value": "[parameters('business_owner')]"
+              },
+              {
+                "field": "tags.technical_owner",
+                "value": "[parameters('technical_owner')]"
+              },
+              {
+                "field": "tags.project_product",
+                "value": "[parameters('project_product')]"
+              },
+              {
+                "field": "tags.business_unit",
+                "value": "[parameters('business_unit')]"
+              },
+              
+              {
+                "field": "tags.auto_shutdown",
+                "value": "[parameters('auto_shutdown')]"
+              },
+              {
+                "field": "tags.application_name",
+                "value": "[parameters('application_name')]"
+              },
+              {
+                "field": "tags.release_number",
+                "value": "[parameters('release_number')]"
+              },
+              {
+                "field": "tags.template_version",
+                "value": "[parameters('template_version')]"
+              },
+              {
+                "field": "tags.backup_retention",
+                "value": "[parameters('backup_retention')]"
+              },
+              {
+                "field": "tags.backup_schedule",
+                "value": "[parameters('backup_schedule')]"
+              },
+              {
+                "field": "tags.instance_schedule",
+                "value": "[parameters('instance_schedule')]"
+              }
+            ]
+          }
+      }
+   },
+   "id": "/providers/Microsoft.Authorization/policyDefinitions/726aca4c-86e9-4b04-b0c5-073027359532",
+   "name": "726aca4c-86e9-4b04-b0c5-073027359532"
+}
