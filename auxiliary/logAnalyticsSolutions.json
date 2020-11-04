@@ -10,7 +10,7 @@
         },
         "workspaceName": {
             "type": "string",
-            "defaultValue": "[concat(parameters('topLevelManagementGroupPrefix'), '-management-la')]"
+            "defaultValue": "[concat(parameters('topLevelManagementGroupPrefix'), '-management-oms')]"
         },
         "workspaceRegion": {
             "type": "string",
@@ -90,7 +90,7 @@
         }
     },
     "variables": {
-        "laResourceId": "[toLower(concat('/subscriptions/', parameters('managementSubscriptionId'), '/resourceGroups/', parameters('topLevelManagementGroupPrefix'), '-management-rg', '/providers/Microsoft.OperationalInsights/workspaces/', parameters('topLevelManagementGroupPrefix'), '-management-la'))]",
+        "laResourceId": "[toLower(concat('/subscriptions/', parameters('managementSubscriptionId'), '/resourceGroups/', parameters('topLevelManagementGroupPrefix'), '-management-rg', '/providers/Microsoft.OperationalInsights/workspaces/', parameters('topLevelManagementGroupPrefix'), '-management-oms'))]",
         "solutions": {
             "security": {
                 "name": "[concat('Security', '(', parameters('workspaceName'), ')')]",

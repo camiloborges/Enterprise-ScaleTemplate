@@ -55,7 +55,7 @@
                 "scope": "[concat('/providers/Microsoft.Management/managementGroups/', parameters('topLevelManagementGroupPrefix'), '-management')]",
                 "parameters": {
                     "workspaceName": {
-                        "value": "[concat(parameters('topLevelManagementGroupPrefix'), '-management-la')]"
+                        "value": "[concat(parameters('topLevelManagementGroupPrefix'), '-management-oms')]"
                     },
                     "automationAccountName": {
                         "value": "[concat(parameters('topLevelManagementGroupPrefix'), '-management-a')]"
