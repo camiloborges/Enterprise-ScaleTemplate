@@ -139,7 +139,7 @@
                                                     "addressPrefixes": 
                                                          "[split(parameters('addressPrefix'),',')]"
                                                     
-                                                }
+                                                },
                                             
                                             "subnets":[{
                                                 "condition": "[and(equals(parameters('enableAzFw'), 'Yes'), not(empty(parameters('subnetMaskForAzFw'))))]",
