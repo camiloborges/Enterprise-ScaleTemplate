@@ -159,7 +159,7 @@
                                             }
                                         },
                                         {
-                                            "condition": "[and(equals(parameters('enableAzFw'), 'Yes'), not(empty(parameters('subnetMaskForAzFw'))))]",
+                                            "condition": "[and(equals(parameters('enableAzFw'), 'Yes'), not(empty(parameters('subnetMaskForAzFw'))),empty('a'))]",
                                             "type": "Microsoft.Network/virtualNetworks/subnets",
                                             "apiVersion": "2020-04-01",
                                             "name": "[concat(variables('hubName'), '/', 'AzureFirewallSubnet')]",
@@ -171,7 +171,7 @@
                                             }
                                         },
                                         {
-                                            "condition": "[and(or(equals(parameters('enableVpnGw'), 'Yes'), equals(parameters('enableErGw'), 'Yes')), not(empty(parameters('subnetMaskForGw'))))]",
+                                            "condition": "[and(or(equals(parameters('enableVpnGw'), 'Yes'), equals(parameters('enableErGw'), 'Yes')), not(empty(parameters('subnetMaskForGw'))),empty('a'))]",
                                             "type": "Microsoft.Network/virtualNetworks/subnets",
                                             "apiVersion": "2020-04-01",
                                             "name": "[concat(variables('hubName'), '/', 'GatewaySubnet')]",
@@ -200,7 +200,7 @@
                                             "location": "[parameters('location')]",
                                             "dependsOn": [
                                                 "[concat('Microsoft.Network/publicIPAddresses/', variables('azVpnGwIpName'))]",
-                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'), '/subnets/GatewaySubnet')]"
+                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
                                             ],
                                             "properties": {
                                                 "gatewayType": "Vpn",
@@ -243,7 +243,7 @@
                                             "location": "[parameters('location')]",
                                             "dependsOn": [
                                                 "[concat('Microsoft.Network/publicIPAddresses/', variables('azErGwIpName'))]",
-                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'), '/subnets/GatewaySubnet')]"
+                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
                                             ],
                                             "properties": {
                                                 "gatewayType": "ExpressRoute",
@@ -288,7 +288,7 @@
                                             "location": "[parameters('location')]",
                                             "dependsOn": [
                                                 "[concat('Microsoft.Network/publicIpAddresses/', variables('azFwIpName'))]",
-                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'), '/subnets/AzureFirewallSubnet')]"
+                                                "[concat('Microsoft.Network/virtualNetworks/', variables('hubName'))]"
                                             ],
                                             "properties": {
                                                 "sku": {
