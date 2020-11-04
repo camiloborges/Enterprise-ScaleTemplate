@@ -7765,8 +7765,8 @@
                       "roleDefinitionIds": [
                         "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
                       ],
-                      "name": "[[concat('NetworkWatcher_', field('location'), '/', 'Microsoft.Network', resourceGroup().name, field('name'))]",
-                      "resourceGroupName": "NetworkWatcherRG",
+                      "name": "[[concat('kath-networkwatcher-nw', '/', 'Microsoft.Network', resourceGroup().name, field('name'))]",
+                      "resourceGroupName": "kath-networkwatcher-rg",
                       "existenceCondition": {
                         "field": "Microsoft.Network/networkWatchers/flowLogs/enabled",
                         "equals": "true"
@@ -7817,7 +7817,7 @@
                               {
                                 "type": "Microsoft.Network/networkWatchers/flowLogs",
                                 "apiVersion": "2019-11-01",
-                                "name": "[[concat('NetworkWatcher_', toLower(parameters('location')),  '/', 'flowLogs')]",
+                                "name": "[[concat([concat('kath-networkwatcher-nw',  '/', 'flowLogs')]",
                                 "location": "[[parameters('location')]",
                                 "properties": {
                                   "targetResourceId": "[[resourceId(parameters('resourceGroupName'), 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
@@ -8335,7 +8335,7 @@
                                       {
                                         "type": "Microsoft.Resources/resourceGroups",
                                         "apiVersion": "2020-06-01",
-                                        "name": "NetworkWatcherRG",
+                                        "name": "kath-networkwatcher-rg",
                                         "location": "[[parameters('ipam')[copyIndex()].location]",
                                         "properties": {}
                                       }

@@ -60,7 +60,7 @@
             "value": "Yes"
         },
         "addressPrefix": {
-            "value": "10.3.1.0/28,10.3.31.0/28"
+            "value": "10.3.1.0/26,10.3.31.0/28"
         },
         "enableVpnGw": {
             "value": "Yes"
