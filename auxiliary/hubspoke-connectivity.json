@@ -132,16 +132,17 @@
                                         {
                                             "name": "[variables('hubName')]",
                                             "type": "Microsoft.Network/virtualNetworks",
-                                            "apiVersion": "2020-04-01",
+                                            "apiVersion": "2020-06-01",
                                             "location": "[parameters('location')]",
                                             "properties": {
                                                 "addressSpace": {
                                                     "addressPrefixes": 
                                                          "[split(parameters('addressPrefix'),',')]"
                                                     
-                                                },
+                                                }/**/,
                                             
-                                                "subnets":[{
+                                                "subnets":[
+                                                    {
                                                     "condition": "[and(equals(parameters('enableAzFw'), 'Yes'), not(empty(parameters('subnetMaskForAzFw'))))]",
                                                     "name": "AzureFirewallSubnet",
                                                     "properties": {
@@ -182,8 +183,8 @@
                                             "properties": {
                                                 "addressPrefix": "[parameters('subnetMaskForGw')]"
                                             }
-                                        }*/
-                                        ,
+                                        },*/
+                                        
                                         {
                                             "condition": "[and(equals(parameters('enableVpnGw'), 'Yes'), not(empty(parameters('subnetMaskForGw'))))]",
                                             "apiVersion": "2020-05-01",
