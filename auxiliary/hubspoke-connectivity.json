@@ -143,14 +143,14 @@
                                             
                                                 "subnets":[
                                                     {
-                                                    "condition": "[and(equals(parameters('enableAzFw'), 'Yes'), not(empty(parameters('subnetMaskForAzFw'))))]",
+
                                                     "name": "AzureFirewallSubnet",
                                                     "properties": {
                                                     "addressPrefix": "[parameters('subnetMaskForAzFw')]"
                                                     }
                                                 },
                                                 {
-                                                    "condition": "[and(or(equals(parameters('enableVpnGw'), 'Yes'), equals(parameters('enableErGw'), 'Yes')), not(empty(parameters('subnetMaskForGw'))))]",
+
                                                     "name": "GatewaySubnet",
                                                     "properties": {
                                                     "addressPrefix": "[parameters('subnetMaskForGw')]"
